@@ -1,8 +1,19 @@
 @echo off
 set batpath=%~dp0
 
-if not exist %USERPROFILE%\_vimrc (
-	mklink %USERPROFILE%\_vimrc %batpath%\vimrc 
+set vimrcpath=%USERPROFILE%\_vimrc
+
+set vimfilespath=%USERPROFILE%\vimfiles
+
+if exist %vimrcpath% (
+    del /f %vimrcpath%
 )
 
-pause
+if exist %vimfilespath% (
+    rmdir /f %vimfilespath%
+)
+
+mklink %vimrcpath% %batpath%\userconfig.vim
+mklink /d %vimfilespath% %batpath%\vimfiles
+ 
+:: pause
