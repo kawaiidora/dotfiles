@@ -21,13 +21,13 @@ colorscheme everforest
 set background=light
 g:everforest_background = 'soft'
 # g:everforest_better_performance = 1
-g:everforest_enable_italic = 0
+# g:everforest_enable_italic = 0
 g:everforest_disable_italic_comment = 1
 if has('termguicolors')
     set termguicolors
 endif
 
-autocmd BufWritePre * :%s/\s\+$//e # 保存时删除文末空格
+# autocmd BufWritePre * :%s/\s\+$//e
 set number # 显示行号
 set colorcolumn=80 # 在第80字符处显示边界线
 set guioptions= # 移除工具栏、滚动条等不必要元素，使gvim只留下标题栏
@@ -42,3 +42,15 @@ set backupdir=C:\WINDOWS\Temp
 set backupskip=C:\WINDOWS\Temp\*
 set directory=C:\WINDOWS\Temp
 set writebackup
+
+# problematic
+# def StripTrailingWhitespaces()
+#     let l = line(".")
+#     let c = col(".")
+#     %s/\s\+$//e
+#     call cursor(l, c)
+# enddef 
+
+# autocmd BufWritePre * :StripTrailingWhitespaces()
+
+# highlight ExtraWhitespace ctermbg=red guibg=red 
