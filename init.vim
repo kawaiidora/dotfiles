@@ -6,7 +6,7 @@ set nocompatible
 
 # 使用vim-plug管理插件
 call plug#begin('~/vimfiles/plugged')
-Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -17,12 +17,14 @@ endif
 
 # 主题
 syntax on
-colorscheme everforest
-set background=light
-g:everforest_background = 'soft'
+colorscheme gruvbox-material
+set background=dark
+g:gruvbox_background = 'soft'
 # g:everforest_better_performance = 1
 # g:everforest_enable_italic = 0
-g:everforest_disable_italic_comment = 1
+# g:everforest_disable_italic_comment = 1
+g:gruvbox_material_disable_italic_comment = 1
+
 if has('termguicolors')
     set termguicolors
 endif

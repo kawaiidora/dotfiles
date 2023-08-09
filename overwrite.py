@@ -13,9 +13,9 @@ repo_vimrc = os.path.join(repo_path, 'init.vim')
 if __name__ == '__main__':
     # print(default_vimrc_path)
     # print(repo_vimrc)
-    print(os.path.exists(default_vimrc_path))
+    # print(os.path.exists(default_vimrc_path))
     if os.path.exists(default_vimrc_path):
-        print('in_if')
+        # print('in_if')
         os.remove(default_vimrc_path)
     os.symlink(repo_vimrc, default_vimrc_path)
 
