@@ -32,7 +32,6 @@ def save_vim(content, path):
     with open(path, mode='w') as file:
         content = content.decode('utf-8')
         file.write(content)
-    pass
 
 
 def save_exe(content, path):
