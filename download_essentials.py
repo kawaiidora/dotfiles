@@ -28,14 +28,16 @@ im_select_url = (
 im_select_path = os.path.join(base_path, 'vimfiles', 'im-select.exe')
 
 
-def save_vim(content):
-    print('save vim')
+def save_vim(content, path):
+    with open(path, mode='w') as file:
+        content = content.decode('utf-8')
+        file.write(content)
     pass
 
 
-def save_exe(content):
-    print('save exe')
-    pass
+def save_exe(content, path):
+    with open(path, mode='wb') as file:
+        file.write(content)
 
 
 save_file = {
@@ -65,7 +67,7 @@ def download_file(url, destination):
 
     # print(return_content(url))
     content = return_content(url)
-    save_file[url.split('.')[-1]](content)
+    save_file[url.split('.')[-1]](content, destination)
 
 
 if __name__ == '__main__':

@@ -1,10 +1,11 @@
 vim9script 
 
-# no compatible with vi
+# set no compatible with vi
 set nocompatible
 
 # using vim-plug
 call plug#begin('~/vimfiles/plugged')
+Plug 'brglng/vim-im-select' # input method handling
 Plug 'morhetz/gruvbox' # color scheme
 Plug 'itchyny/lightline.vim'
 Plug 'nvie/vim-flake8' # flake8 python checker integration
@@ -14,6 +15,11 @@ call plug#end()
 if has('clipboard')
     set clipboard=unnamed
 endif
+
+g:im_select_get_im_cmd = '~\vimfiles\im-select.exe'
+# g:im_select_default = '1033' # 1033 is for English keyboard under English US
+g:im_select_default = '2052' # 2052 is for English keyboard under Chinese
+g:im_select_enable_for_gvim = 1 # enable im-select for gvim
 
 # enable lightline
 set laststatus=2
@@ -35,8 +41,8 @@ if has('termguicolors')
     set termguicolors
 endif
 # autocmd BufWritePre * :%s/\s\+$//e
-set number # 显示行号
-set colorcolumn=80 # 在第80字符处显示边界线
+set number # display line number
+set colorcolumn=80 # highlight column no.80
 set guioptions= # remove all gui elements
 set guicursor+=a:blinkon0 # disable cursor blink
 

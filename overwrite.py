@@ -18,4 +18,3 @@ if __name__ == '__main__':
         # print('in_if')
         os.remove(default_vimrc_path)
     os.symlink(repo_vimrc, default_vimrc_path)
-
