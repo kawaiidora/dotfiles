@@ -1,42 +1,47 @@
 vim9script 
-# 使用新版vim语言
 
-# 不与vi兼容
+# no compatible with vi
 set nocompatible
 
-# 使用vim-plug管理插件
+# using vim-plug
 call plug#begin('~/vimfiles/plugged')
-Plug 'sainnhe/gruvbox-material'
-Plug 'sheerun/vim-polyglot'
+Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
-# 使用系统剪贴板
+# use system clipboard
 if has('clipboard')
     set clipboard=unnamed
 endif
 
-# 主题
-syntax on
-colorscheme gruvbox-material
-set background=dark
-g:gruvbox_background = 'soft'
-# g:everforest_better_performance = 1
-# g:everforest_enable_italic = 0
-# g:everforest_disable_italic_comment = 1
-g:gruvbox_material_disable_italic_comment = 1
+# enable lightline
+set laststatus=2
+set noshowmode # disable built-in mode hint because lightline shows
+g:lightline = { 'colorscheme': 'gruvbox' }
 
+g:gruvbox_bold = 0
+g:gruvbox_italic = 0
+g:gruvbox_contrast_light = 'hard'
+g:gruvbox_contrast_dark = 'soft'
+
+colorscheme gruvbox
+set background=light
+if has('gui_running')
+    set guifont=Consolas:h11
+    set lines=42 columns=90
+endif
 if has('termguicolors')
     set termguicolors
 endif
-
 # autocmd BufWritePre * :%s/\s\+$//e
 set number # 显示行号
 set colorcolumn=80 # 在第80字符处显示边界线
-set guioptions= # 移除工具栏、滚动条等不必要元素，使gvim只留下标题栏
-set guicursor+=a:blinkon0 # 关闭光标闪烁
+set guioptions= # remove all gui elements
+set guicursor+=a:blinkon0 # disable cursor blink
+
 filetype indent plugin on
 var tab_indent_size = 4
-set expandtab # 将tab转换成空格
+set expandtab 
 set tabstop=4 
 set shiftwidth=4
 set backup

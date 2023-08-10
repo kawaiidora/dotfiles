@@ -27,9 +27,19 @@ im_select_url = (
 
 im_select_path = os.path.join(base_path, 'vimfiles', 'im-select.exe')
 
+def save_vim(content):
+    print('save vim')
+    pass
+
+def save_exe(content):
+    print('save exe')
+    pass
+
+save_file = { 'vim': save_vim, 'exe': save_exe }
+
 def download_file(url, destination):
     print(url)
-    # print(destination)
+    print(destination)
     
     def return_content(url):
         request_obj = Request(url, headers = {
@@ -45,10 +55,15 @@ def download_file(url, destination):
             print('download file failed, retry...')
             sleep(randrange(1,5))
             return return_content(url)
+
     # print(return_content(url))
     content = return_content(url)
+    save_file[url.split('.')[-1]](content)
+
 
 if __name__ == '__main__':
+    print('download vim-plug')
     download_file(vim_plug_url, vim_plug_path)
     if platform.system() == 'Windows':
+        print('download im-select')
         download_file(im_select_url, im_select_path)
