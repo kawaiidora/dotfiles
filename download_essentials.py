@@ -22,28 +22,35 @@ im_select_url = (
     'raw/master/im-select-win/out/x64/im-select.exe'
 ) if is_64bits else (
     'https://github.com/daipeihust/im-select/'
-     'raw/master/win/out/x86/im-select.exe'
+    'raw/master/win/out/x86/im-select.exe'
 )
 
 im_select_path = os.path.join(base_path, 'vimfiles', 'im-select.exe')
+
 
 def save_vim(content):
     print('save vim')
     pass
 
+
 def save_exe(content):
     print('save exe')
     pass
 
-save_file = { 'vim': save_vim, 'exe': save_exe }
+
+save_file = {
+    'vim': save_vim,
+    'exe': save_exe
+}
+
 
 def download_file(url, destination):
     print(url)
     print(destination)
-    
+
     def return_content(url):
-        request_obj = Request(url, headers = {
-            'User-agent' : (
+        request_obj = Request(url, headers={
+            'User-agent': (
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0)'
                 ' Gecko/20100101 Firefox/97.0'
             )
@@ -53,7 +60,7 @@ def download_file(url, destination):
                 return response.read()
         except IncompleteRead:
             print('download file failed, retry...')
-            sleep(randrange(1,5))
+            sleep(randrange(1, 5))
             return return_content(url)
 
     # print(return_content(url))

@@ -5,8 +5,9 @@ set nocompatible
 
 # using vim-plug
 call plug#begin('~/vimfiles/plugged')
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox' # color scheme
 Plug 'itchyny/lightline.vim'
+Plug 'nvie/vim-flake8' # flake8 python checker integration
 call plug#end()
 
 # use system clipboard
@@ -21,8 +22,8 @@ g:lightline = { 'colorscheme': 'gruvbox' }
 
 g:gruvbox_bold = 0
 g:gruvbox_italic = 0
-g:gruvbox_contrast_light = 'hard'
-g:gruvbox_contrast_dark = 'soft'
+g:gruvbox_contrast_light = 'soft'
+# g:gruvbox_contrast_dark = 'hard'
 
 colorscheme gruvbox
 set background=light
