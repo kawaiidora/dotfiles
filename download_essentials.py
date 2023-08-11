@@ -70,6 +70,9 @@ def download_file(url, destination):
 
 
 if __name__ == '__main__':
+    if sys.version_info <= (3, 8):
+        print('you need newer version of python')
+        exit(1)
     print('download vim-plug')
     download_file(vim_plug_url, vim_plug_path)
     if platform.system() == 'Windows':
