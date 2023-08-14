@@ -46,8 +46,8 @@ save_file = {
 
 
 def download_file(url, destination):
-    print(url)
-    print(destination)
+    # print(url)
+    # print(destination)
 
     def return_content(url):
         request_obj = Request(url, headers={
@@ -66,6 +66,10 @@ def download_file(url, destination):
 
     # print(return_content(url))
     content = return_content(url)
+    parent = os.path.dirname(destination)
+    # print(parent)
+    if not os.path.exist(parent):
+        os.mkdir(parent)
     save_file[url.split('.')[-1]](content, destination)
 
 
