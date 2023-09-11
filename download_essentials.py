@@ -19,7 +19,7 @@ is_64bits = sys.maxsize > 2 ** 32
 
 im_select_url = (
     'https://github.com/daipeihust/im-select/'
-    'raw/master/im-select-win/out/x64/im-select.exe'
+    'raw//master/win/out/x64/im-select.exe'
 ) if is_64bits else (
     'https://github.com/daipeihust/im-select/'
     'raw/master/win/out/x86/im-select.exe'
@@ -68,7 +68,7 @@ def download_file(url, destination):
     content = return_content(url)
     parent = os.path.dirname(destination)
     # print(parent)
-    if not os.path.exist(parent):
+    if not os.path.exists(parent):
         os.mkdir(parent)
     save_file[url.split('.')[-1]](content, destination)
 

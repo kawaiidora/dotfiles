@@ -4,6 +4,18 @@ vim9script
 set nocompatible
 # set no compatible with vi
 
+def Win11(): bool
+# detect windows version, return true if running on windows 11
+
+py3 << endpy3
+import sys, vim
+def py_win11_detect():
+    return sys.getwindowsversion().build >= 22000
+endpy3
+
+    return py3eval('py_win11_detect()')
+enddef
+
 ## vim-plug ##################################################################
 call plug#begin('~/vimfiles/plugged')
 # Plug 'ervandew/supertab'
@@ -16,14 +28,17 @@ Plug 'itchyny/lightline.vim'
 # status line displays filename, mode, encoding, cursor_position, etc.
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 # flake8 python checker integration
+if has('win32')
+    if Win11()
+        Plug 'stillwwater/wincap.vim'
+    endif
+endif
 if !has('gui_running')
     Plug 'brglng/vim-im-select'
     # input method handling
 endif
 call plug#end()
 ## vim-plug ##################################################################
-
-autocmd FileType python map <buffer> <F3>:call flake8#Flake8()<CR>
 
 if has('clipboard')
     set clipboard^=unnamed,unnamedplus
@@ -33,9 +48,9 @@ endif
 ## im-select #################################################################
 g:im_select_command = '~\vimfiles\im-select.exe'
 
-# g:im_select_default = '1033'
+g:im_select_default = '1033'
 # 1033 is for English keyboard under English US
-g:im_select_default = '2052'
+# g:im_select_default = '2052'
 # 2052 is for English keyboard under Chinese
 # g:im_select_enable_for_gvim = 1
 # enable im-select for gvim
@@ -63,8 +78,10 @@ colorscheme gruvbox
 set background=light
 
 if has('gui_running')
-    set guifont=Consolas:h11
-    set lines=42 columns=90
+    set guifont=等距更纱黑体\ SC:h12
+    # set guifont=Consolas:h11
+    # for windows 7
+    set lines=50 columns=90
 endif
 
 if has('termguicolors')
