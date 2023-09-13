@@ -26,7 +26,7 @@ Plug 'morhetz/gruvbox'
 # color scheme
 Plug 'itchyny/lightline.vim'
 # status line displays filename, mode, encoding, cursor_position, etc.
-Plug 'nvie/vim-flake8', { 'for': 'python' }
+# Plug 'nvie/vim-flake8', { 'for': 'python' }
 # flake8 python checker integration
 if has('win32')
     if Win11()
