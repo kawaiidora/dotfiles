@@ -19,7 +19,7 @@ is_64bits = sys.maxsize > 2 ** 32
 
 im_select_url = (
     'https://github.com/daipeihust/im-select/'
-    'raw//master/win/out/x64/im-select.exe'
+    'raw/master/win/out/x64/im-select.exe'
 ) if is_64bits else (
     'https://github.com/daipeihust/im-select/'
     'raw/master/win/out/x86/im-select.exe'
