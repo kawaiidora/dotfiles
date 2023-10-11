@@ -7,15 +7,11 @@ set nocompatible
 ## vim-plug ##################################################################
 call plug#begin('~/vimfiles/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-# Plug 'ervandew/supertab'
-# tab completion
+# autocomplete
 Plug 'ntpeters/vim-better-whitespace'
 # highlight trailing whitespaces
 Plug 'yorickpeterse/vim-paper'
-# Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-# Plug 'morhetz/gruvbox'
 # color scheme
-# Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 Plug 'erik-j-d/lightline-paper'
 # status line displays filename, mode, encoding, cursor_position, etc.
@@ -35,6 +31,14 @@ if has('clipboard')
     set clipboard^=unnamed,unnamedplus
 endif
 # use system clipboard
+
+## coc-nvim ##################################################################
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+# use enter key to confirm completion
+
+# pip install pyright
+# :CocInstall coc-pyright
+## coc-nvim ##################################################################
 
 ## im-select #################################################################
 g:im_select_command = '~\vimfiles\im-select.exe'
@@ -64,7 +68,7 @@ colorscheme paper
 set background=light
 
 if has('gui_running')
-    set guifont=Sarasa\ Mono\ SC:h11
+    set guifont=Sarasa\ Mono\ SC:h12
     # set guifont=Consolas:h11
     # for windows 7
     set lines=50 columns=90
@@ -74,7 +78,6 @@ endif
 if has('termguicolors')
     set termguicolors
 endif
-## gruvbox ###################################################################
 
 set number
 # display line number
