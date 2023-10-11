@@ -11,9 +11,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 # tab completion
 Plug 'ntpeters/vim-better-whitespace'
 # highlight trailing whitespaces
-Plug 'morhetz/gruvbox'
+Plug 'yorickpeterse/vim-paper'
+# Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+# Plug 'morhetz/gruvbox'
 # color scheme
+# Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
+Plug 'erik-j-d/lightline-paper'
 # status line displays filename, mode, encoding, cursor_position, etc.
 
 if has('win32')
@@ -26,18 +30,6 @@ endif
 
 call plug#end()
 ## vim-plug ##################################################################
-
-
-## coc #######################################################################
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-# use tab key to navigate completion list, shift+tab reverse navigate
-
-## coc #######################################################################
-
 
 if has('clipboard')
     set clipboard^=unnamed,unnamedplus
@@ -66,19 +58,13 @@ set laststatus=2
 # enable lightline
 set noshowmode
 # disable built-in mode hint because lightline shows
-g:lightline = { 'colorscheme': 'gruvbox' }
+g:lightline = { 'colorscheme': 'paper' }
 ## lightline #################################################################
-
-## gruvbox ###################################################################
-g:gruvbox_bold = 0
-g:gruvbox_italic = 0
-g:gruvbox_contrast_light = 'hard'
-g:gruvbox_contrast_dark = 'medium'
-colorscheme gruvbox
+colorscheme paper
 set background=light
 
 if has('gui_running')
-    set guifont=等距更纱黑体\ SC:h12
+    set guifont=Sarasa\ Mono\ SC:h11
     # set guifont=Consolas:h11
     # for windows 7
     set lines=50 columns=90
