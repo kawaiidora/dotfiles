@@ -7,14 +7,15 @@ set nocompatible
 ## vim-plug ##################################################################
 call plug#begin('~/vimfiles/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-# autocomplete
+# autocomplete, this plugin requires nodejs
 Plug 'ntpeters/vim-better-whitespace'
 # highlight trailing whitespaces
 Plug 'yorickpeterse/vim-paper'
 # color scheme
 Plug 'itchyny/lightline.vim'
-Plug 'erik-j-d/lightline-paper'
 # status line displays filename, mode, encoding, cursor_position, etc.
+Plug 'erik-j-d/lightline-paper'
+# lightline theme, for vim-paper
 
 if has('win32')
     Plug 'stillwwater/wincap.vim'
@@ -82,7 +83,7 @@ endif
 set number
 # display line number
 set colorcolumn=80
-# highlight column at 80th char
+# highlight column at 80th character
 if has('gui_running')
     set guioptions=
     # remove all gui elements
