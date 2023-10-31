@@ -34,8 +34,23 @@ endif
 # use system clipboard
 
 ## coc-nvim ##################################################################
+set signcolumn=yes
+# always show signcolumn
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 # use enter key to confirm completion
+
+def g:ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+enddef
+
+nnoremap <silent> K :call ShowDocumentation()<CR>
+# use K to show documentation in preview window
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 # pip install pyright
 # :CocInstall coc-pyright

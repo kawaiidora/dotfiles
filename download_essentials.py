@@ -13,7 +13,7 @@ vim_plug_url = (
 
 base_path = os.path.expanduser('~')
 
-vim_plug_path = os.path.join(base_path, 'vimfiles', 'autoload', 'plug.vim')
+vim_plug_path = os.path.join(base_path, 'AppData', 'Local', 'nvim', 'autoload', 'plug.vim')
 
 is_64bits = sys.maxsize > 2 ** 32
 
