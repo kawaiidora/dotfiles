@@ -2,26 +2,18 @@ import os
 import shutil
 from pathlib import Path
 
-# isWindows = os.name == 'nt'
+is_windows = os.name == 'nt'
 
-base = Path.home().joinpath('AppData', 'Local')
+# base = Path.home().joinpath('AppData', 'Local')
 # base = base if isWindows else Path.home().joinpath('.config') 
 
 repo = Path(__file__).parent
 
-nvim_folder = 'nvim'
-nvim_target = base.joinpath(nvim_folder)
+# nvim_folder = 'nvim'
+# nvim_target = base.joinpath(nvim_folder)
 
-# nvim_data = base.joinpath('nvim-data')
-
-#def link(source, destination):
-#    if os.path.exists(destination):
-#        os.remove(destination)
-#    os.mkdir(destination)
-#os.symlink(source, destination)
-
-def remove_folder(path: os.PathLike):
-    pass
+vim_folder = 'vimfiles' if is_windows else '.vim'
+vim_target = Path.home().joinpath(vim_folder)
 
 if __name__ == '__main__':
     # print(default_vimrc_path)
@@ -40,7 +32,12 @@ if __name__ == '__main__':
     # link(source_wezterm, destination_wezterm)
     # repo_neovim = os.path.join(repo_path, 'neovim.lua')
     # dest_neovim = os.path.join(home_path, 'AppData', 'Local', 'nvim', 'init.lua')
-    if nvim_target.exists():
-        shutil.rmtree(nvim_target)
-    nvim_target.symlink_to(repo.joinpath(nvim_folder), target_is_directory=True)
+    # if nvim_target.exists():
+    #     shutil.rmtree(nvim_target)
+    if vim_target.exists():
+        shutil.rmtree(vim_target)
+    # repo中的vim配置文件夹名称永远是vim
+    vim_target.symlink_to(repo.joinpath('vim'))
+    # nvim_target.symlink_to(repo.joinpath(nvim_folder), target_is_directory=True)
+
     

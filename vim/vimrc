@@ -1,0 +1,23 @@
+vim9script
+# 使用新版vim脚本
+
+
+def JoinPath(path: list<string>): string
+	var sep = "\\"
+	var result = ""
+	var i = 0
+	while i < len(path)
+		if i != 0
+			result = result .. sep
+		endif
+		result = result .. path[i]
+		i += 1
+	endwhile
+	return result
+enddef
+
+const path_of_pack = JoinPath(["~", "vimfiles", "pack"])
+
+set packpath+=path_of_pack
+
+
