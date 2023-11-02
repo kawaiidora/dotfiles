@@ -1,18 +1,27 @@
+import os
+import shutil
 from pathlib import Path
 
+# isWindows = os.name == 'nt'
+
 base = Path.home().joinpath('AppData', 'Local')
+# base = base if isWindows else Path.home().joinpath('.config') 
 
 repo = Path(__file__).parent
 
-nvim_target = base.joinpath('nvim')
+nvim_folder = 'nvim'
+nvim_target = base.joinpath(nvim_folder)
 
-nvim_data = base.joinpath('nvim-data')
+# nvim_data = base.joinpath('nvim-data')
 
 #def link(source, destination):
 #    if os.path.exists(destination):
 #        os.remove(destination)
 #    os.mkdir(destination)
 #os.symlink(source, destination)
+
+def remove_folder(path: os.PathLike):
+    pass
 
 if __name__ == '__main__':
     # print(default_vimrc_path)
@@ -31,10 +40,7 @@ if __name__ == '__main__':
     # link(source_wezterm, destination_wezterm)
     # repo_neovim = os.path.join(repo_path, 'neovim.lua')
     # dest_neovim = os.path.join(home_path, 'AppData', 'Local', 'nvim', 'init.lua')
-    if nvim_data.exists():
-        # nvim_data.rmdir()
-        pass
     if nvim_target.exists():
-        nvim_target.rmdir()
-    nvim_target.symlink_to(repo.joinpath('nvim'), target_is_directory=True)
+        shutil.rmtree(nvim_target)
+    nvim_target.symlink_to(repo.joinpath(nvim_folder), target_is_directory=True)
     
