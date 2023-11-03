@@ -2,6 +2,7 @@ vim9script
 # 使用新版vim脚本
 
 
+
 def JoinPath(path: list<string>): string
 	var sep = "\\"
 	var result = ""
@@ -16,8 +17,44 @@ def JoinPath(path: list<string>): string
 	return result
 enddef
 
-const path_of_pack = JoinPath(["~", "vimfiles", "pack"])
+# const path_of_pack = JoinPath(["~", "vimfiles", "pack"])
 
-set packpath+=path_of_pack
+# 看上去不需要packpath
+# set packpath+=path_of_pack
 
+set number
+syntax on
+filetype on
+set colorcolumn=80
 
+if has("win32")
+	packadd win11_gvim_titlebar_color
+endif
+
+if has("clipboard")
+	# 一律使用系统剪贴板
+	set clipboard^=unnamed,unnamedplus
+endif
+
+if has("gui_running")
+	packadd paper
+	packadd lightline_paper
+	colorscheme paper
+	# 去掉不需要的菜单栏工具栏滚动条
+	set guioptions=
+	# 关闭光标闪烁
+	set guicursor+=a:blinkon0
+	# 设置GUI字体
+	set guifont=等距更纱黑体\ SC:h11
+	# 设置窗口大小，lines是有多少行
+	set lines=60 columns=100
+endif
+
+# 启用lightline
+set laststatus=2
+# 关闭自带的模式显示，有lightline后不需要了
+set noshowmode
+
+if has("gui_running")
+	g:lightline = {"colorscheme": "paper"}
+endif
