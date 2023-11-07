@@ -13,3 +13,6 @@
 [submodule "vim/pack/default/opt/gruvbox"]
 	path = vim/pack/default/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "vim/pack/default/opt/im_select"]
+	path = vim/pack/default/opt/im_select
+	url = https://github.com/brglng/vim-im-select.git
