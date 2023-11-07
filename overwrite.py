@@ -5,7 +5,7 @@ from pathlib import Path
 is_windows = os.name == 'nt'
 
 nvim_base = Path.home().joinpath('AppData', 'Local')
-nvim_base = nvim_base if is_windows else Path.home().joinpath('.config') 
+nvim_base = nvim_base if is_windows else Path.home().joinpath('.config')
 
 repo = Path(__file__).parent
 
@@ -32,5 +32,3 @@ if __name__ == '__main__':
     vim_target.symlink_to(repo.joinpath('vim'), True)
     nvim_target.symlink_to(repo.joinpath('nvim'), True)
     wezterm_target.symlink_to(repo.joinpath(wezterm_config))
-
-    

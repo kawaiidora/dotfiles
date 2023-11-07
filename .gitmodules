@@ -1,9 +1,6 @@
 [submodule "vim/pack/default/start/lightline"]
 	path = vim/pack/default/start/lightline
 	url = https://github.com/itchyny/lightline.vim.git
-[submodule "vim/pack/default/opt/lightline_paper"]
-	path = vim/pack/default/opt/lightline_paper
-	url = https://github.com/Erik-J-D/lightline-paper.git
 [submodule "vim/pack/default/start/better_whitespace"]
 	path = vim/pack/default/start/better_whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
@@ -13,6 +10,7 @@
 [submodule "vim/pack/default/opt/gruvbox"]
 	path = vim/pack/default/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule "vim/pack/default/opt/im_select"]
-	path = vim/pack/default/opt/im_select
-	url = https://github.com/brglng/vim-im-select.git
+[submodule "vim/pack/default/opt/coc"]
+	path = vim/pack/default/opt/coc
+	url = https://github.com/neoclide/coc.nvim.git
+	branch = release
