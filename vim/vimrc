@@ -25,6 +25,7 @@ enddef
 set number
 syntax on
 filetype on
+# 高亮显示第80列
 set colorcolumn=80
 
 if has("win32")
@@ -37,17 +38,17 @@ if has("clipboard")
 endif
 
 if has("gui_running")
-	packadd paper
-	packadd lightline_paper
-	colorscheme paper
+	packadd gruvbox
+	g:gruvbox_italic = 0
+	colorscheme gruvbox
 	# 去掉不需要的菜单栏工具栏滚动条
 	set guioptions=
 	# 关闭光标闪烁
 	set guicursor+=a:blinkon0
 	# 设置GUI字体
-	set guifont=等距更纱黑体\ SC:h11
+	set guifont=等距更纱黑体\ SC:h10
 	# 设置窗口大小，lines是有多少行
-	set lines=60 columns=100
+	set lines=50 columns=100
 endif
 
 # 启用lightline
@@ -56,5 +57,5 @@ set laststatus=2
 set noshowmode
 
 if has("gui_running")
-	g:lightline = {"colorscheme": "paper"}
+	g:lightline = {"colorscheme": "gruvbox"}
 endif

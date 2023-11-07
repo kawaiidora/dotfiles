@@ -1,6 +1,3 @@
-[submodule "vim/pack/default/opt/paper"]
-	path = vim/pack/default/opt/paper
-	url = https://github.com/yorickpeterse/vim-paper.git
 [submodule "vim/pack/default/start/lightline"]
 	path = vim/pack/default/start/lightline
 	url = https://github.com/itchyny/lightline.vim.git
@@ -13,3 +10,6 @@
 [submodule "vim/pack/default/opt/win11_gvim_titlebar_color"]
 	path = vim/pack/default/opt/win11_gvim_titlebar_color
 	url = https://github.com/stillwwater/wincap.vim.git
+[submodule "vim/pack/default/opt/gruvbox"]
+	path = vim/pack/default/opt/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
