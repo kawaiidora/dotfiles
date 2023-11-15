@@ -1,7 +1,17 @@
 vim9script
 # 使用新版vim脚本
 
-set encoding=utf-8
+# 禁用vi兼容
+set nocompatible
+
+if has('multi_byte')
+    # 内部工作编码
+    set encoding=utf-8
+    # 文件默认编码
+    set fileencoding=utf-8
+    # 打开文件时自动尝试下面顺序的编码
+    set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+endif
 
 # 默认使用英语
 language en_US.UTF-8
@@ -28,7 +38,6 @@ enddef
 
 set number
 syntax on
-filetype on
 # 高亮显示第80列
 set colorcolumn=80
 
@@ -37,9 +46,29 @@ const indent = 4
 &tabstop = indent
 &shiftwidth = indent
 set expandtab
+# 自动缩进
+set autoindent
+# 智能缩进
+set smartindent
+# 高亮匹配的括号
+# set showmatch
+# 高亮当前行
+# set cursorline
+# 根据文件类型自动设置缩进
+if has('autocmd')
+    filetype plugin indent on
+endif
+
+# 智能判断大小写
+set smartcase
+# 高亮搜索内容
+set hlsearch
+
 
 if has("win32") && has("gui_running")
-    packadd win11_gvim_titlebar_color
+    packadd wincap
+    g:wincap_plugin_exe = $HOME ..
+        \ "/vimfiles/pack/default/opt/wincap/bin/wincap.exe"
 endif
 
 if has("clipboard")
@@ -47,18 +76,19 @@ if has("clipboard")
     set clipboard^=unnamed,unnamedplus
 endif
 
-# g:im_select_enable_focus_events = 0
-
 if has("gui_running")
-    packadd gruvbox
-    g:gruvbox_italic = 0
-    colorscheme gruvbox
+    set background=light
+    packadd everforest
+    g:everforest_background = 'soft'
+    g:everforest_better_performance = 1
+    g:everforest_disable_italic_comment = 1
+    colorscheme everforest
     # 去掉不需要的菜单栏工具栏滚动条
     set guioptions=
     # 关闭光标闪烁
     set guicursor+=a:blinkon0
     # 设置GUI字体
-    set guifont=等距更纱黑体\ SC:h10
+    set guifont=等距更纱黑体\ SC:h11
     # 设置窗口大小，lines是有多少行
     set lines=50 columns=100
 
@@ -67,14 +97,12 @@ if has("gui_running")
     # pip install pyright
     # 使用回车键确认选择
     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+         \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 endif
-
-# 启用lightline
-set laststatus=2
-# 关闭自带的模式显示，有lightline后不需要了
-set noshowmode
-
 if has("gui_running")
-    g:lightline = {"colorscheme": "gruvbox"}
+    # 启用lightline
+    set laststatus=2
+    # 关闭自带的模式显示，有lightline后不需要了
+    set noshowmode
+    g:lightline = {"colorscheme": "everforest"}
 endif
