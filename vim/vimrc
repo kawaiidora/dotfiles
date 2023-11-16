@@ -78,19 +78,33 @@ endif
 
 if has("gui_running")
     set background=light
-    packadd everforest
-    g:everforest_background = 'soft'
-    g:everforest_better_performance = 1
-    g:everforest_disable_italic_comment = 1
-    colorscheme everforest
+    packadd gruvbox
+    g:gruvbox_italic = 0
+    # g:gruvbox_contrast_light = 'soft'
+    g:gruvbox_italicize_comments = 0
+    g:gruvbox_color_column = 'bg4'
+    g:gruvbox_improved_strings = 1
+    g:gruvbox_improved_warnings = 1
+    colorscheme gruvbox
     # 去掉不需要的菜单栏工具栏滚动条
     set guioptions=
     # 关闭光标闪烁
     set guicursor+=a:blinkon0
     # 设置GUI字体
-    set guifont=等距更纱黑体\ SC:h11
+    set guifont=等距更纱黑体\ SC:h10
     # 设置窗口大小，lines是有多少行
-    set lines=50 columns=100
+    set lines=30 columns=80
+
+    # 启用lightline
+    set laststatus=2
+    # 关闭自带的模式显示，有lightline后不需要了
+    set noshowmode
+    g:lightline = {"colorscheme": "gruvbox"}
+endif
+
+if has("gui_running")
+    # 让行号左侧的符号列一直显示
+    set signcolumn=yes
 
     packadd coc
     # CocInstall coc-pyright
@@ -98,11 +112,4 @@ if has("gui_running")
     # 使用回车键确认选择
     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
          \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-endif
-if has("gui_running")
-    # 启用lightline
-    set laststatus=2
-    # 关闭自带的模式显示，有lightline后不需要了
-    set noshowmode
-    g:lightline = {"colorscheme": "everforest"}
 endif

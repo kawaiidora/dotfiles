@@ -11,6 +11,6 @@
 [submodule "vim/pack/default/opt/wincap"]
 	path = vim/pack/default/opt/wincap
 	url = https://github.com/stillwwater/wincap.vim.git
-[submodule "vim/pack/default/opt/everforest"]
-	path = vim/pack/default/opt/everforest
-	url = https://github.com/sainnhe/everforest.git
+[submodule "vim/pack/default/opt/gruvbox"]
+	path = vim/pack/default/opt/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
