@@ -90,10 +90,10 @@ if has("gui_running")
     set guioptions=
     # 关闭光标闪烁
     set guicursor+=a:blinkon0
-    # 设置GUI字体
-    set guifont=等距更纱黑体\ SC:h10
+    # 设置GUI字体，10.5磅字在win上刚好偶数像素高
+    set guifont=等距更纱黑体\ SC:h10.5
     # 设置窗口大小，lines是有多少行
-    set lines=30 columns=80
+    set lines=40 columns=90
 
     # 启用lightline
     set laststatus=2
