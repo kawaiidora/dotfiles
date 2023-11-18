@@ -6,32 +6,23 @@ from datetime import datetime
 timestamp = datetime.now().strftime('%Y%m%d%H%M%S%f')
 is_windows = os.name == 'nt'
 
-nvim_base = Path.home().joinpath('AppData', 'Local')
-nvim_base = nvim_base if is_windows else Path.home().joinpath('.config')
-
 repo = Path(__file__).parent
-
-nvim_folder = 'nvim'
-nvim_target = nvim_base.joinpath(nvim_folder)
 
 vim_folder = 'vimfiles' if is_windows else '.vim'
 vim_target = Path.home().joinpath(vim_folder)
 
-wezterm_config = '.wezterm.lua'
-wezterm_target = Path.home().joinpath(wezterm_config)
-
-def backup_replace(src: Path, dst: Path):
-    if dst.exists(follow_symlinks=False):
-        newname = dst.stem + timestamp + dst.suffix
-        dst.rename(dst.parent.joinpath(newname))
-    is_directory = dst.suffix == ''
-    dst.symlink_to(src, target_is_directory=is_directory)
+def backup_replace(source: Path, target: Path):
+    if target.exists(follow_symlinks=False):
+        newname = target.stem + timestamp + target.suffix
+        target.rename(target.parent.joinpath(newname))
+    is_directory = target.suffix == ''
+    target.symlink_to(source, target_is_directory=is_directory)
 
 if __name__ == '__main__':
     # repo中的配置文件夹名称固定
     vim_source = repo.joinpath('vim')
     backup_replace(vim_source, vim_target)
-    backup_replace(repo.joinpath(wezterm_config), wezterm_target)
-    alacritty_src = repo.joinpath('alacritty')
-    alacritty_dst = Path(os.path.expandvars('%APPDATA%')).joinpath('alacritty')
-    backup_replace(alacritty_src, alacritty_dst)
+    alacritty_source = repo.joinpath('alacritty')
+    appdata = Path(os.path.expandvars('%APPDATA%'))
+    alacritty_target = appdata.joinpath('alacritty')
+    backup_replace(alacritty_source, alacritty_target)
