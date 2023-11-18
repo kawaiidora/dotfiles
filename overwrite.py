@@ -1,5 +1,4 @@
 import os
-import shutil
 from pathlib import Path
 from datetime import datetime
 
@@ -29,20 +28,6 @@ def backup_replace(src: Path, dst: Path):
     dst.symlink_to(src, target_is_directory=is_directory)
 
 if __name__ == '__main__':
-    # print(timestamp)
-    # if nvim_target.is_dir():
-    #     nvim_target.unlink()
-    #     shutil.rmtree(nvim_target, True)
-    # if vim_target.is_dir():
-    #     # print(vim_target)
-    #     vim_target.unlink()
-    #     shutil.rmtree(vim_target, True)
-    # if wezterm_target.exists():
-    #     Path.unlink(wezterm_target)
-    # vim_target.symlink_to(repo.joinpath('vim'), True)
-    # nvim_target.symlink_to(repo.joinpath('nvim'), True)
-    # wezterm_target.symlink_to(repo.joinpath(wezterm_config))
-
     # repo中的配置文件夹名称固定
     vim_source = repo.joinpath('vim')
     backup_replace(vim_source, vim_target)

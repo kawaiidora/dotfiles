@@ -14,7 +14,7 @@ if has('multi_byte')
 endif
 
 # 默认使用英语
-language en_US.UTF-8
+language en_US
 
 
 def JoinPath(path: list<string>): string
@@ -76,13 +76,16 @@ if has("clipboard")
     set clipboard^=unnamed,unnamedplus
 endif
 
+g:ctrlp_working_path_mode = 'ra'
+g:ctrlp_root_directory = "~"
+
 if has("gui_running")
     set background=light
     packadd gruvbox
     g:gruvbox_italic = 0
     # g:gruvbox_contrast_light = 'soft'
     g:gruvbox_italicize_comments = 0
-    g:gruvbox_color_column = 'bg4'
+    g:gruvbox_color_column = 'bg3'
     g:gruvbox_improved_strings = 1
     g:gruvbox_improved_warnings = 1
     colorscheme gruvbox
@@ -93,7 +96,7 @@ if has("gui_running")
     # 设置GUI字体，10.5磅字在win上刚好偶数像素高
     set guifont=等距更纱黑体\ SC:h10.5
     # 设置窗口大小，lines是有多少行
-    set lines=40 columns=90
+    set lines=35 columns=90
 
     # 启用lightline
     set laststatus=2
