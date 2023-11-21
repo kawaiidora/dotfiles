@@ -20,3 +20,9 @@
 [submodule "alacritty/themes"]
 	path = alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule "vim/pack/default/opt/arun"]
+	path = vim/pack/default/opt/arun
+	url = https://github.com/skywind3000/asyncrun.vim.git
+[submodule "vim/pack/default/opt/togglelist"]
+	path = vim/pack/default/opt/togglelist
+	url = https://github.com/milkypostman/vim-togglelist.git

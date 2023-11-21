@@ -85,7 +85,7 @@ if has("gui_running")
     g:gruvbox_italic = 0
     # g:gruvbox_contrast_light = 'soft'
     g:gruvbox_italicize_comments = 0
-    g:gruvbox_color_column = 'bg3'
+    g:gruvbox_color_column = 'bg2'
     g:gruvbox_improved_strings = 1
     g:gruvbox_improved_warnings = 1
     colorscheme gruvbox
@@ -105,6 +105,8 @@ if has("gui_running")
     g:lightline = {"colorscheme": "gruvbox"}
 endif
 
+# CoC设置
+# 依赖Nodejs
 if has("gui_running")
     # 让行号左侧的符号列一直显示
     set signcolumn=yes
@@ -116,3 +118,10 @@ if has("gui_running")
     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
          \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 endif
+
+packadd arun
+packadd togglelist
+
+# nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+nmap <leader>s :AsyncRun python %<CR>
