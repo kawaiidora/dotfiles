@@ -1,6 +1,3 @@
-[submodule "vim/pack/default/start/lightline"]
-	path = vim/pack/default/start/lightline
-	url = https://github.com/itchyny/lightline.vim.git
 [submodule "vim/pack/default/start/better_whitespace"]
 	path = vim/pack/default/start/better_whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
@@ -29,3 +26,6 @@
 [submodule "vim/pack/default/start/fzf-dep"]
 	path = vim/pack/default/start/fzf-dep
 	url = https://github.com/junegunn/fzf.git
+[submodule "vim/pack/default/opt/lightline"]
+	path = vim/pack/default/opt/lightline
+	url = https://github.com/itchyny/lightline.vim.git

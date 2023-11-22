@@ -113,6 +113,7 @@ endif
 
 # lightline：常驻状态栏，终端下不加载
 if has("gui_running")
+    packadd lightline
     # 启用lightline
     set laststatus=2
     # 关闭自带的模式显示，有lightline后不需要了
