@@ -37,7 +37,15 @@ if __name__ == '__main__':
     pwsh_target = Path.home().joinpath(pwsh_base, pwsh_folder)
     backup_replace(pwsh_source, pwsh_target)
 
+    # Starship
     starship_file = 'starship.toml'
     starship_source = repo.joinpath(starship_file)
     starship_target = Path.home().joinpath(starship_file)
     backup_replace(starship_source, starship_target)
+
+    # WindowsTerminal
+    wt_source = repo.joinpath('windowsterminal')
+    wt_scoop = Path.home().joinpath('scoop', 'apps', 'windows-terminal')
+    wt_target = wt_scoop.joinpath('current', 'settings')
+    backup_replace(wt_source, wt_target)
+

@@ -69,15 +69,14 @@ if has("win32") && has("gui_running")
     packadd wincap
     g:wincap_plugin_exe = $HOME ..
         \ "/vimfiles/pack/default/opt/wincap/bin/wincap.exe"
+
+    # set renderoptions=type:directx,geom:0,renmode:6
 endif
 
 if has("clipboard")
     # 一律使用系统剪贴板
     set clipboard^=unnamed,unnamedplus
 endif
-
-g:ctrlp_working_path_mode = 'ra'
-g:ctrlp_root_directory = "~"
 
 if has("gui_running")
     set background=light
@@ -95,6 +94,7 @@ if has("gui_running")
     set guicursor+=a:blinkon0
     # 设置GUI字体，10.5磅字在win上刚好偶数像素高
     set guifont=等距更纱黑体\ SC:h10.5
+    # set guifont=Maple\ Mono\ SC\ NF:h10.5
     # 设置窗口大小，lines是有多少行
     set lines=35 columns=90
 
@@ -109,7 +109,7 @@ endif
 # 依赖Nodejs
 if has("gui_running")
     # 让行号左侧的符号列一直显示
-    set signcolumn=yes
+    # set signcolumn=yes
 
     packadd coc
     # CocInstall coc-pyright
