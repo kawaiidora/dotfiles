@@ -4,6 +4,7 @@ vim9script
 # 禁用vi兼容
 set nocompatible
 
+# 编码
 if has('multi_byte')
     # 内部工作编码
     set encoding=utf-8
@@ -17,30 +18,32 @@ endif
 language en_US
 
 
-def JoinPath(path: list<string>): string
-    var sep = "\\"
-    var result = ""
-    var i = 0
-    while i < len(path)
-        if i != 0
-            result = result .. sep
-        endif
-        result = result .. path[i]
-        i += 1
-    endwhile
-    return result
-enddef
+# 路径拼接
+# def JoinPath(path: list<string>): string
+#     var sep = "\\"
+#     var result = ""
+#     var i = 0
+#     while i < len(path)
+#         if i != 0
+#             result = result .. sep
+#         endif
+#         result = result .. path[i]
+#         i += 1
+#     endwhile
+#     return result
+# enddef
 
 # const path_of_pack = JoinPath(["~", "vimfiles", "pack"])
 
 # 看上去不需要packpath
 # set packpath+=path_of_pack
 
+# 启用左侧数字行
 set number
+# 启用语法高亮
 syntax on
 # 高亮显示第80列
 set colorcolumn=80
-
 # 统一四字符缩进
 const indent = 4
 &tabstop = indent
@@ -58,28 +61,26 @@ set smartindent
 if has('autocmd')
     filetype plugin indent on
 endif
-
 # 智能判断大小写
 set smartcase
 # 高亮搜索内容
 set hlsearch
 
-
-if has("win32") && has("gui_running")
-    packadd wincap
-    g:wincap_plugin_exe = $HOME ..
-        \ "/vimfiles/pack/default/opt/wincap/bin/wincap.exe"
-
-    # set renderoptions=type:directx,geom:0,renmode:6
-endif
-
+# 一律使用系统剪贴板
 if has("clipboard")
-    # 一律使用系统剪贴板
     set clipboard^=unnamed,unnamedplus
 endif
 
+# windows字体渲染调整，没整明白
+# if has("win32") && has("gui_running")
+#     set renderoptions=type:directx,geom:0,renmode:6
+# endif
+
+# gvim有关设置，外观和主题
 if has("gui_running")
+    # 浅色模式
     set background=light
+    # 只在GUI模式下载入主题Gruvbox
     packadd gruvbox
     g:gruvbox_italic = 0
     # g:gruvbox_contrast_light = 'soft'
@@ -87,6 +88,7 @@ if has("gui_running")
     g:gruvbox_color_column = 'bg2'
     g:gruvbox_improved_strings = 1
     g:gruvbox_improved_warnings = 1
+    # 主题设置都搞定后再加载主题
     colorscheme gruvbox
     # 去掉不需要的菜单栏工具栏滚动条
     set guioptions=
@@ -94,10 +96,23 @@ if has("gui_running")
     set guicursor+=a:blinkon0
     # 设置GUI字体，10.5磅字在win上刚好偶数像素高
     set guifont=等距更纱黑体\ SC:h10.5
+    # 这吊字体gvim识别不能
     # set guifont=Maple\ Mono\ SC\ NF:h10.5
     # 设置窗口大小，lines是有多少行
     set lines=35 columns=90
+endif
 
+# 以下为插件设置
+
+# wincap.vim：让gvim标题栏使用背景色，仅限Win11
+if has("win32") && has("gui_running")
+    packadd wincap
+    g:wincap_plugin_exe = $HOME ..
+        \ "/vimfiles/pack/default/opt/wincap/bin/wincap.exe"
+endif
+
+# lightline：常驻状态栏，终端下不加载
+if has("gui_running")
     # 启用lightline
     set laststatus=2
     # 关闭自带的模式显示，有lightline后不需要了
@@ -105,27 +120,36 @@ if has("gui_running")
     g:lightline = {"colorscheme": "gruvbox"}
 endif
 
-# CoC设置
-# 依赖Nodejs
+# CoC：补全终极方案
+# 终端下不加载
 if has("gui_running")
     # 让行号左侧的符号列一直显示
     # set signcolumn=yes
 
     packadd coc
+    # 依赖Nodejs
     # CocInstall coc-pyright
     # pip install pyright
+
     # 使用回车键确认选择
     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
          \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 endif
 
+# 异步运行命令，结果显示在quickfix窗口
 packadd arun
-packadd togglelist
 
-# nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 nmap <leader>s :AsyncRun python %<CR>
 
+# 按键开关quickfix和locationlist窗口
+packadd togglelist
+
+# 目前只用来开关quickfix
+# nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+
+# fzf：fuzzy finder，浏览选择文件超级方案
+# 让fzf使用vim主题
 g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -140,3 +164,12 @@ g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+# gvim下让内置终端使用主题配色
+if has("win32") && has("gui_running") && has("terminal")
+    set termwintype=conpty
+endif
+if has("gui_running")
+    g:fzf_force_termguicolors = 1
+    highlight! link Terminal Normal
+endif
