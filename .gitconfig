@@ -1,0 +1,7 @@
+[credential]
+	helper = manager
+[user]
+	name = Dora
+	email = kawaiidora@outlook.com
+[core]
+	editor = gvim.exe
