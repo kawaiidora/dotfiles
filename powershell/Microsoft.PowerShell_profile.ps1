@@ -1,3 +1,8 @@
+# 关闭遥测
+$env:POWERSHELL_TELEMETRY_OPTOUT = 1
+# 关闭更新的检查
+$env:POWERSHELL_UPDATE_CHECK = off
+
 $ENV:STARSHIP_CONFIG = "$HOME\starship.toml"
 
 # installed:
