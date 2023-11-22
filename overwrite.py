@@ -7,11 +7,10 @@ is_windows = os.name == 'nt'
 timestamp = datetime.now().strftime('%Y%m%d%H%M%S%f')
 
 
-def backup_replace(source: Path, target: Path):
+def backup_replace(source: Path, target: Path, is_directory=True):
     if target.exists(follow_symlinks=False):
         newname = target.stem + timestamp + target.suffix
         target.rename(target.parent.joinpath(newname))
-    is_directory = target.suffix == ''
     target.symlink_to(source, target_is_directory=is_directory)
 
 
@@ -41,7 +40,7 @@ if __name__ == '__main__':
     starship_file = 'starship.toml'
     starship_source = repo.joinpath(starship_file)
     starship_target = Path.home().joinpath(starship_file)
-    backup_replace(starship_source, starship_target)
+    backup_replace(starship_source, starship_target, False)
 
     # WindowsTerminal
     wt_source = repo.joinpath('windowsterminal')
@@ -49,3 +48,8 @@ if __name__ == '__main__':
     wt_target = wt_scoop.joinpath('current', 'settings')
     backup_replace(wt_source, wt_target)
 
+    # gitconfig
+    gitconfig_file = '.gitconfig'
+    gitconfig_source = repo.joinpath(gitconfig_file)
+    gitconfig_target = Path.home().joinpath(gitconfig_file)
+    backup_replace(gitconfig_source, gitconfig_target, False)
