@@ -42,8 +42,6 @@ language en_US
 set number
 # 启用语法高亮
 syntax on
-# 高亮显示第80列
-set colorcolumn=80
 # 统一四字符缩进
 const indent = 4
 &tabstop = indent
@@ -78,6 +76,8 @@ endif
 
 # gvim有关设置，外观和主题
 if has("gui_running")
+    # 高亮显示第80列
+    set colorcolumn=80
     # 浅色模式
     set background=light
     # 只在GUI模式下载入主题Gruvbox

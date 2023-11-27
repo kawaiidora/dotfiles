@@ -1,2 +1,5 @@
 vim/.netrwhist
 *.swp
+windowsterminal/state.json
+windowsterminal/elevated-state.json
+
