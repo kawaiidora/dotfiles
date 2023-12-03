@@ -12,7 +12,6 @@ $ENV:STARSHIP_CONFIG = "$HOME\starship.toml"
 # psreadline
 # scoop-completion
 # terminal-icons
-# z
 
 Import-Module scoop-completion
 Import-Module terminal-icons

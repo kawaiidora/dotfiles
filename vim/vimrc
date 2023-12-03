@@ -170,6 +170,7 @@ g:fzf_colors =
 if has("win32") && has("gui_running") && has("terminal")
     set termwintype=conpty
 endif
+
 if has("gui_running")
     g:fzf_force_termguicolors = 1
     highlight! link Terminal Normal

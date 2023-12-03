@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
     # WindowsTerminal
     wt_source = repo.joinpath('windowsterminal')
-    wt_scoop = Path.home().joinpath('scoop', 'apps', 'windows-terminal')
+    wt_scoop = Path.home().joinpath('scoop', 'apps', 'windows-terminal-preview')
     wt_target = wt_scoop.joinpath('current', 'settings')
     backup_replace(wt_source, wt_target)
 
