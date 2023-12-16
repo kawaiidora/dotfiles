@@ -13,7 +13,6 @@ $ENV:STARSHIP_CONFIG = "$HOME\starship.toml"
 # scoop-completion
 # terminal-icons
 
-Import-Module scoop-completion
 Import-Module terminal-icons
 
 Set-PSReadLineOption -EditMode Vi

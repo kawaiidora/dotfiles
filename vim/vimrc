@@ -69,10 +69,10 @@ if has("clipboard")
     set clipboard^=unnamed,unnamedplus
 endif
 
-# windows字体渲染调整，没整明白
-# if has("win32") && has("gui_running")
-#     set renderoptions=type:directx,geom:0,renmode:6
-# endif
+# windows字体渲染调整，还没整明白
+if has("win32") && has("gui_running")
+    set renderoptions=type:directx,renmode:5,taamode:1
+endif
 
 # gvim有关设置，外观和主题
 if has("gui_running")
@@ -95,9 +95,9 @@ if has("gui_running")
     # 关闭光标闪烁
     set guicursor+=a:blinkon0
     # 设置GUI字体，10.5磅字在win上刚好偶数像素高
-    set guifont=等距更纱黑体\ SC:h10.5
-    # 这吊字体gvim识别不能
-    # set guifont=Maple\ Mono\ SC\ NF:h10.5
+    # set guifont=等距更纱黑体\ SC:h10.5
+    # 这字体适合高分屏
+    set guifont=Maple\ Mono\ SC\ NF:h10.5
     # 设置窗口大小，lines是有多少行
     set lines=35 columns=90
 endif
