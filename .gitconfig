@@ -5,3 +5,5 @@
 	email = kawaiidora@outlook.com
 [core]
 	editor = gvim.exe
+	quotepath = false
+	autocrlf = false
