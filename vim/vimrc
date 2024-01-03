@@ -78,8 +78,8 @@ endif
 if has("gui_running")
     # 高亮显示第80列
     set colorcolumn=80
-    # 浅色模式
-    set background=light
+    # 浅色or深色
+    set background=dark
     # 只在GUI模式下载入主题Gruvbox
     packadd gruvbox
     g:gruvbox_italic = 0
@@ -95,9 +95,9 @@ if has("gui_running")
     # 关闭光标闪烁
     set guicursor+=a:blinkon0
     # 设置GUI字体，10.5磅字在win上刚好偶数像素高
-    # set guifont=等距更纱黑体\ SC:h10.5
+    set guifont=等距更纱黑体\ SC:h10.5
     # 这字体适合高分屏
-    set guifont=Maple\ Mono\ SC\ NF:h10.5
+    # set guifont=Maple\ Mono\ SC\ NF:h10.5
     # 设置窗口大小，lines是有多少行
     set lines=35 columns=90
 endif
