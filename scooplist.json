@@ -1,0 +1,121 @@
+{
+    "apps": [
+        {
+            "Name": "7zip",
+            "Updated": "2024-01-05T04:09:35.6089204+08:00",
+            "Info": "",
+            "Version": "23.01",
+            "Source": "main"
+        },
+        {
+            "Name": "dark",
+            "Updated": "2024-01-05T04:14:41.4040335+08:00",
+            "Info": "",
+            "Version": "3.11.2",
+            "Source": "main"
+        },
+        {
+            "Name": "fzf",
+            "Updated": "2024-01-05T04:20:36.9234237+08:00",
+            "Info": "",
+            "Version": "0.45.0",
+            "Source": "main"
+        },
+        {
+            "Name": "git",
+            "Updated": "2024-01-05T04:09:42.3913645+08:00",
+            "Info": "",
+            "Version": "2.43.0",
+            "Source": "main"
+        },
+        {
+            "Name": "Maple-Mono-SC-NF",
+            "Updated": "2024-01-05T04:11:58.7588941+08:00",
+            "Info": "",
+            "Version": "6.4",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "nodejs",
+            "Updated": "2024-01-05T04:14:38.6050298+08:00",
+            "Info": "",
+            "Version": "21.5.0",
+            "Source": "main"
+        },
+        {
+            "Name": "pwsh",
+            "Updated": "2024-01-05T04:17:07.338718+08:00",
+            "Info": "",
+            "Version": "7.4.0",
+            "Source": "main"
+        },
+        {
+            "Name": "python",
+            "Updated": "2024-01-05T04:16:28.6782006+08:00",
+            "Info": "",
+            "Version": "3.12.1",
+            "Source": "main"
+        },
+        {
+            "Name": "SarasaGothic-SC",
+            "Updated": "2024-01-05T04:13:21.2744882+08:00",
+            "Info": "",
+            "Version": "0.42.6",
+            "Source": "nerd-fonts"
+        },
+        {
+            "Name": "starship",
+            "Updated": "2024-01-05T04:18:04.3613844+08:00",
+            "Info": "",
+            "Version": "1.17.1",
+            "Source": "main"
+        },
+        {
+            "Name": "terminal-icons",
+            "Updated": "2024-01-05T04:18:08.094723+08:00",
+            "Info": "",
+            "Version": "0.11.0",
+            "Source": "extras"
+        },
+        {
+            "Name": "vim",
+            "Updated": "2024-01-05T04:17:28.4921451+08:00",
+            "Info": "",
+            "Version": "9.0",
+            "Source": "main"
+        },
+        {
+            "Name": "windows-terminal-preview",
+            "Updated": "2024-01-05T04:18:29.9805011+08:00",
+            "Info": "",
+            "Version": "1.19.3172.0",
+            "Source": "versions"
+        }
+    ],
+    "buckets": [
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2024-01-05T00:27:22+08:00",
+            "Manifests": 1892
+        },
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main",
+            "Updated": "2024-01-05T00:27:30+08:00",
+            "Manifests": 1268
+        },
+        {
+            "Name": "nerd-fonts",
+            "Source": "https://github.com/matthewjberger/scoop-nerd-fonts",
+            "Updated": "2023-12-14T21:23:36+08:00",
+            "Manifests": 327
+        },
+        {
+            "Name": "versions",
+            "Source": "https://github.com/ScoopInstaller/Versions",
+            "Updated": "2024-01-05T00:35:39+08:00",
+            "Manifests": 435
+        }
+    ]
+}
